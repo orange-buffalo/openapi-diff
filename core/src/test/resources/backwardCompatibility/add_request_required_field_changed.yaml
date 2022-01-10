@@ -1,0 +1,36 @@
+openapi: "3.0.3"
+info:
+  title: API
+  version: "1.0"
+paths:
+  /resource:
+    post:
+      operationId: action
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RequestDto"
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResponseDto"
+components:
+  schemas:
+    RequestDto:
+      properties:
+        existingField:
+          type: string
+          required: false
+        # the field was added as required
+        addedField:
+          type: string
+          required: true
+    ResponseDto:
+      properties:
+        responseField:
+          type: string
+          required: false
